@@ -29,18 +29,12 @@ public class CambioController {
             @PathVariable("from") String from,
             @PathVariable("to") String to) {
 
-        //TODO
-         List<Cambio> cambios =  repository.findAll();
-         for(Cambio c: cambios){
-             System.out.println(c.getConversionFactor());
-         }
-
         var cambio = repository.findByFromAndTo(from, to);
-        if(cambio ==  null) throw new RuntimeException("Currency unsupported");
+        if (cambio == null) throw new RuntimeException("Currency unsupported");
 
         var port = env.getProperty("local.server.port");
-        BigDecimal conversionFactor =  cambio.getConversionFactor();
-        BigDecimal convertedValue =  conversionFactor.multiply(amount);
+        BigDecimal conversionFactor = cambio.getConversionFactor();
+        BigDecimal convertedValue = conversionFactor.multiply(amount);
         cambio.setConvertedValue(convertedValue.setScale(2, RoundingMode.CEILING));
         cambio.setEnvironment(port);
 
