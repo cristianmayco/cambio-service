@@ -26,6 +26,10 @@ spring:
     password: postgres
     enabled: true
     validate-on-migrate: false
+  sleuth:
+    sampler:
+      probability: 1.0
+  #     porcentagem de rastreamento prod = 5%
 springdoc:
   api-docs:
     path: cambio-service/v3/api-docs
