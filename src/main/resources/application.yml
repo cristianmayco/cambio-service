@@ -11,7 +11,7 @@ spring:
   datasource:
     username: postgres
     password: postgres
-    url: jdbc:postgresql://172.19.0.2:5432/cambio_service
+    url: jdbc:postgresql://localhost:5432/cambio_service
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -20,7 +20,7 @@ spring:
     properties:
       dialect: org.hibernate.dialect.PostgreSQLDIalect
   flyway:
-    url: jdbc:postgresql://172.19.0.2:5432/
+    url: jdbc:postgresql://localhost:5432/
     schemas: cambio_service
     user: postgres
     password: postgres
